@@ -79,6 +79,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 32px;
       padding: 80px 24px 48px;
       min-height: 100vh;
     }
@@ -231,7 +232,7 @@
       background: linear-gradient(135deg, rgba(212,20,122,0.06), rgba(0,168,150,0.04));
       border: 1px solid rgba(212,20,122,0.2);
       border-left: 3px solid var(--cv-magenta);
-      padding: 2mm 4mm;
+      padding: 2.5mm 4mm;
       margin-top: 2.5mm;
       display: flex;
       align-items: center;
@@ -254,7 +255,7 @@
     }
     .db-sep {
       width: 1px;
-      height: 20px;
+      height: 24px;
       background: linear-gradient(180deg, var(--cv-magenta), var(--cv-or));
       flex-shrink: 0;
     }
@@ -263,7 +264,7 @@
       font-size: 6.5pt;
       font-style: italic;
       color: var(--cv-creme);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     /* ===== COMPÉTENCES — barre horizontale tags ===== */
@@ -332,7 +333,7 @@
 
     /* ===== ITEMS EXPÉRIENCE / FORMATION ===== */
     .item {
-      padding: 1.5mm 0;
+      padding: 2mm 0;
       border-bottom: 1px solid rgba(232,184,75,0.07);
     }
     .item:last-of-type { border-bottom: none; }
@@ -363,7 +364,36 @@
       color: var(--cv-creme);
       font-style: italic;
       margin-top: 0.5mm;
-      line-height: 1.4;
+      line-height: 1.45;
+    }
+
+    /* Sous-liste ateliers */
+    .ateliers-list {
+      margin-top: 1mm;
+      padding-left: 0;
+      list-style: none;
+    }
+    .ateliers-list li {
+      font-family: 'Playfair Display', serif;
+      font-size: 6pt;
+      color: var(--cv-creme);
+      font-style: italic;
+      line-height: 1.5;
+      padding-left: 4mm;
+      position: relative;
+    }
+    .ateliers-list li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--cv-or);
+      font-style: normal;
+    }
+    .ateliers-sem {
+      font-size: 5.5pt;
+      color: var(--cv-turquoise);
+      font-style: normal;
+      margin-right: 1mm;
     }
 
     /* ===== LANGUES ===== */
@@ -376,20 +406,58 @@
     }
     .langues-line strong { color: var(--cv-or); font-weight: 600; }
 
+    /* ===== EN-TÊTE PAGE 2 (continuité) ===== */
+    .header-p2 {
+      padding-bottom: 3mm;
+      border-bottom: 2px solid;
+      border-image: linear-gradient(90deg, var(--cv-turquoise), var(--cv-or), var(--cv-magenta)) 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 6mm;
+    }
+    .header-p2-title {
+      font-family: 'Abril Fatface', serif;
+      font-size: 16pt;
+      color: var(--cv-blanc);
+      letter-spacing: 0.02em;
+    }
+    .header-p2-title em {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--cv-or-vif);
+    }
+    .header-p2-sub {
+      font-family: 'Raleway', sans-serif;
+      font-size: 6pt;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cv-turquoise);
+    }
+    .header-p2-page {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 7pt;
+      color: rgba(232,184,75,0.45);
+      flex-shrink: 0;
+    }
+
     /* ===== BLOC MOTIVATION ===== */
     .motivation-bloc {
-      margin-top: 2.5mm;
-      padding: 2mm 4mm;
+      margin-top: 4mm;
+      padding: 4mm 5mm;
       border: 1px solid rgba(232,184,75,0.25);
       border-left: 3px solid var(--cv-or);
       background: rgba(232,184,75,0.04);
+      position: relative;
     }
-    .motivation-bloc p {
-      font-family: 'Playfair Display', serif;
-      font-size: 6.5pt;
-      font-style: italic;
-      color: var(--cv-creme);
-      line-height: 1.5;
+    .motivation-bloc::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 80% 20%, rgba(212,20,122,0.05) 0%, transparent 55%);
+      pointer-events: none;
     }
     .motiv-label {
       font-family: 'Raleway', sans-serif;
@@ -399,8 +467,20 @@
       text-transform: uppercase;
       color: var(--cv-or-vif);
       font-style: normal;
-      margin-bottom: 1mm;
+      margin-bottom: 2mm;
       display: block;
+    }
+    .motiv-star {
+      color: var(--cv-magenta);
+      margin-right: 2mm;
+    }
+    .motivation-bloc p {
+      font-family: 'Playfair Display', serif;
+      font-size: 7pt;
+      font-style: italic;
+      color: var(--cv-creme);
+      line-height: 1.7;
+      position: relative;
     }
 
     /* ===== FOOTER ===== */
@@ -436,11 +516,15 @@
         color-adjust: exact;
       }
       .nav-bar { display: none !important; }
-      .page-wrapper { padding: 0; }
+      .page-wrapper { padding: 0; gap: 0; }
       .page {
         box-shadow: none;
         width: 210mm;
         height: 297mm;
+      }
+      .page-break {
+        break-after: page;
+        page-break-after: always;
       }
     }
 
@@ -463,7 +547,9 @@
 </nav>
 
 <div class="page-wrapper">
-  <article class="page">
+
+  <!-- ==================== PAGE 1 ==================== -->
+  <article class="page page-break">
     <!-- Décorations -->
     <div class="page-top-band"></div>
     <div class="page-side-left"></div>
@@ -519,48 +605,45 @@
           <div class="item">
             <div class="item-annee">Sept.&ndash;D&eacute;c. 2026</div>
             <div class="item-titre">Animatrice commerciale</div>
-            <div class="item-desc">Communication directe, valorisation de produits, relation client.</div>
+            <div class="item-desc">Communication directe, valorisation de produits, relation client et fid&eacute;lisation.</div>
           </div>
 
           <div class="item">
-            <div class="item-annee">2024</div>
+            <div class="item-annee">2024 &mdash; saisonnier</div>
             <div class="item-titre">Employ&eacute;e polyvalente &amp; h&ocirc;tesse d'accueil</div>
             <div class="item-lieu">Caprice du Brusc</div>
+            <div class="item-desc">Accueil client&egrave;le, gestion des flux, communication sous pression.</div>
           </div>
 
           <div class="item">
-            <div class="item-annee">2023</div>
+            <div class="item-annee">2023 &mdash; saisonnier</div>
             <div class="item-titre">Serveuse</div>
             <div class="item-lieu">464 Harbor, Odessa</div>
+            <div class="item-desc">Relation client, adaptabilit&eacute;, travail en &eacute;quipe.</div>
           </div>
 
           <div class="item">
             <div class="item-annee">Saison</div>
             <div class="item-titre">Ouvrier viticole &mdash; vendanges</div>
+            <div class="item-lieu">Domaine viticole</div>
           </div>
 
           <div class="item">
             <div class="item-annee">2020</div>
             <div class="item-titre">Animatrice encadrement jeunesse</div>
             <div class="item-lieu">Club de basket</div>
+            <div class="item-desc">Animation pour enfants de 7 &agrave; 10 ans. P&eacute;dagogie, gestion de groupe.</div>
           </div>
 
           <div class="item">
             <div class="item-annee">Depuis 2022</div>
             <div class="item-titre">Restitutions publiques</div>
             <div class="item-lieu">Conservatoire Paris 20<sup>e</sup></div>
+            <div class="item-desc">Pr&eacute;sentations r&eacute;guli&egrave;res de travaux de plateau devant un public.</div>
           </div>
 
           <div class="langues-line">
             <strong>Langues&nbsp;:</strong>&nbsp; Fran&ccedil;ais (natif) &nbsp;&middot;&nbsp; Anglais B2 &nbsp;&middot;&nbsp; Espagnol B1
-          </div>
-
-          <!-- BLOC MOTIVATION -->
-          <div class="motivation-bloc">
-            <span class="motiv-label">Candidature &mdash; La Fabrique des petits hasards</span>
-            <p>
-              Ayant grandi dans un milieu &eacute;loign&eacute; de la culture, le th&eacute;&acirc;tre m'a ouvert un monde que je veux rendre accessible &agrave; d'autres. La Fabrique des petits hasards incarne cette mission depuis plus de 20&nbsp;ans avec les publics prioritaires. Je souhaite mettre mes comp&eacute;tences en communication, montage vid&eacute;o, cr&eacute;ation sonore et relation public au service de votre diffusion et de votre rayonnement.
-            </p>
           </div>
         </div>
 
@@ -571,52 +654,97 @@
           <div class="item">
             <div class="item-annee">Depuis 2025</div>
             <div class="item-titre">Ateliers Danse &amp; Masque</div>
-            <div class="item-lieu">Conservatoire Paris 20<sup>e</sup></div>
+            <div class="item-lieu">Conservatoire Municipal Paris 20<sup>e</sup></div>
           </div>
 
           <div class="item">
             <div class="item-annee">Depuis 2022</div>
             <div class="item-titre">Cycle 3 d'art dramatique</div>
-            <div class="item-lieu">Conservatoire Paris 20<sup>e</sup></div>
-            <div class="item-desc">Jeu, voix, texte contemporain. Restitutions publiques.</div>
+            <div class="item-lieu">Conservatoire Municipal de Th&eacute;&acirc;tre Paris 20<sup>e</sup></div>
+            <div class="item-desc">Formation pratique avec restitutions ponctuelles.</div>
           </div>
 
           <div class="item">
             <div class="item-annee">2022&ndash;2025</div>
             <div class="item-titre">Licence d'&Eacute;tude Th&eacute;&acirc;trale</div>
             <div class="item-lieu">Universit&eacute; Paris-Sorbonne</div>
-            <div class="item-desc">Ateliers&nbsp;: Christophe Tarkos, Rebekka Kricheldorf, Th&eacute;&acirc;tre chinois traditionnel, Jeu d'acteur au Th&eacute;&acirc;tre du Soleil (troupe officielle), R&eacute;pertoire qu&eacute;b&eacute;cois, Th&eacute;&acirc;tre r&eacute;cit.</div>
+            <ul class="ateliers-list">
+              <li><span class="ateliers-sem">Sem. 1</span>Autour des textes de Christophe Tarkos</li>
+              <li><span class="ateliers-sem">Sem. 2</span>Rebekka Kricheldorf&nbsp;: h&eacute;riter, cr&eacute;er</li>
+              <li><span class="ateliers-sem">Sem. 3</span>Th&eacute;&acirc;tre traditionnel chinois</li>
+              <li><span class="ateliers-sem">Sem. 4</span>Jeu d'acteur au Th&eacute;&acirc;tre du Soleil &mdash; avec les com&eacute;diens de la troupe officielle</li>
+              <li><span class="ateliers-sem">Sem. 5</span>D&eacute;couverte du r&eacute;pertoire contemporain qu&eacute;b&eacute;cois</li>
+              <li><span class="ateliers-sem">Sem. 6</span>Th&eacute;&acirc;tre r&eacute;cit&nbsp;: du texte au plateau</li>
+            </ul>
           </div>
 
           <div class="item">
             <div class="item-annee">2021</div>
-            <div class="item-titre">Bac G&eacute;n&eacute;ral &mdash; <em>Mention Bien</em></div>
+            <div class="item-titre">Bac G&eacute;n&eacute;ral &mdash; <em style="font-family:'Playfair Display',serif;color:var(--cv-or-vif);">Mention Bien</em></div>
           </div>
 
           <div class="item">
             <div class="item-annee">2018&ndash;2021</div>
             <div class="item-titre">Conservatoire de La Seyne-sur-Mer</div>
-            <div class="item-desc">Formation classique et contemporaine approfondie.</div>
+            <div class="item-desc">Formation classique et contemporaine.</div>
           </div>
 
           <div class="item">
             <div class="item-annee">2009&ndash;2014</div>
-            <div class="item-titre">Compagnie <em>&ldquo;Grain de Sel&rdquo;</em></div>
+            <div class="item-titre">Compagnie <em style="font-family:'Playfair Display',serif;">&ldquo;Grain de Sel&rdquo;</em></div>
             <div class="item-lieu">Six-Fours-les-Plages</div>
+            <div class="item-desc">Formation th&eacute;&acirc;trale d&egrave;s l'enfance &mdash; premiers pas sur le plateau.</div>
           </div>
+
         </div>
 
       </div><!-- /.corps -->
 
-      <!-- FOOTER -->
+      <!-- FOOTER PAGE 1 -->
       <footer class="page-footer">
-        <span class="footer-left">Louna Garcia &mdash; Communication &amp; Diffusion &mdash; 2026 / Candidature &mdash; La Fabrique des petits hasards</span>
-        <span class="footer-right">Artiste pluridisciplinaire</span>
+        <span class="footer-left">Louna Garcia &mdash; Communication &amp; Diffusion &mdash; 2026 &nbsp;/&nbsp; Candidature &mdash; La Fabrique des petits hasards</span>
+        <span class="footer-right">Page 1 / 2</span>
       </footer>
 
     </div><!-- /.page-inner -->
   </article>
-</div>
+
+  <!-- ==================== PAGE 2 ==================== -->
+  <article class="page">
+    <!-- Décorations -->
+    <div class="page-top-band"></div>
+    <div class="page-side-left"></div>
+    <div class="page-side-right"></div>
+
+    <div class="page-inner">
+
+      <!-- EN-TÊTE PAGE 2 -->
+      <header class="header-p2">
+        <div>
+          <div class="header-p2-sub">Candidature &mdash; La Fabrique des petits hasards</div>
+          <div class="header-p2-title">Louna <em>Garcia</em></div>
+        </div>
+        <div class="header-p2-page">Lettre de motivation &mdash; page 2</div>
+      </header>
+
+      <!-- BLOC MOTIVATION -->
+      <div class="motivation-bloc">
+        <span class="motiv-label"><span class="motiv-star">&#10022;</span>Lettre de motivation</span>
+        <p>
+          Ayant grandi dans un milieu &eacute;loign&eacute; de la culture, le th&eacute;&acirc;tre m'a ouvert un monde que je veux rendre accessible &agrave; d'autres. La Fabrique des petits hasards incarne cette mission depuis plus de 20&nbsp;ans avec les publics prioritaires. Je souhaite mettre mes comp&eacute;tences en communication, montage vid&eacute;o, cr&eacute;ation sonore et relation public au service de votre diffusion et de votre rayonnement.
+        </p>
+      </div>
+
+      <!-- FOOTER PAGE 2 -->
+      <footer class="page-footer">
+        <span class="footer-left">Louna Garcia &mdash; Communication &amp; Diffusion &mdash; 2026 &nbsp;/&nbsp; Candidature &mdash; La Fabrique des petits hasards</span>
+        <span class="footer-right">Page 2 / 2 &nbsp;&nbsp; Artiste pluridisciplinaire</span>
+      </footer>
+
+    </div><!-- /.page-inner -->
+  </article>
+
+</div><!-- /.page-wrapper -->
 
 </body>
 </html>
