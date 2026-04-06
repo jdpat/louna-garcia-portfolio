@@ -1,0 +1,6 @@
+# Exclure les vidéos MOV (trop volumineuses)
+*.mov
+*.MOV
+
+# Fichiers système macOS
+.DS_Store
