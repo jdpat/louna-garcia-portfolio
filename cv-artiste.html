@@ -6,28 +6,28 @@
   <title>Louna Garcia — CV Communication &amp; Diffusion théâtrale</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --cv-fond:         #1C0A2E;
-      --cv-blanc:        #FFF5E8;
-      --cv-creme:        #D4B896;
-      --cv-magenta:      #D4147A;
-      --cv-or:           #E8B84B;
-      --cv-or-vif:       #F5C842;
-      --cv-turquoise:    #00A896;
-      --cv-violet-clair: #7B4FBF;
-      --cv-bg-tag:       #2E1248;
+      --noir:       #0A0A0A;
+      --noir-soft:  #111111;
+      --blanc:      #F0EAE0;
+      --blanc-dim:  #B8AFA3;
+      --rouge:      #8B1A1A;
+      --rouge-clair:#A82828;
+      --or:         #C8A96E;
+      --or-dim:     #8A7349;
+      --gris:       #1E1E1E;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-size: 10pt; }
 
     body {
-      background: #2A0A1E;
+      background: #1a1a1a;
       font-family: 'Raleway', sans-serif;
-      color: var(--cv-blanc);
+      color: var(--blanc);
       line-height: 1.4;
     }
 
@@ -40,38 +40,37 @@
       align-items: center;
       justify-content: space-between;
       padding: 10px 24px;
-      background: rgba(28,10,46,0.96);
-      border-bottom: 1px solid rgba(212,20,122,0.35);
+      background: rgba(10,10,10,0.95);
+      border-bottom: 1px solid var(--or-dim);
       backdrop-filter: blur(10px);
     }
     .nav-bar a {
       font-family: 'Raleway', sans-serif;
-      color: var(--cv-or);
+      color: var(--blanc);
       text-decoration: none;
       font-size: 0.9rem;
-      font-weight: 500;
+      font-weight: 400;
       letter-spacing: 0.05em;
       transition: opacity 0.2s;
     }
     .nav-bar a:hover { opacity: 0.75; }
     .btn-print {
-      background: linear-gradient(135deg, var(--cv-magenta), #A0106A);
-      color: var(--cv-blanc) !important;
+      background: var(--rouge);
+      color: var(--blanc) !important;
       padding: 8px 20px;
       border-radius: 2px;
       font-family: 'Raleway', sans-serif;
       font-size: 0.7rem;
       font-weight: 600;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       cursor: pointer;
       border: none;
       text-decoration: none;
-      box-shadow: 0 4px 16px rgba(212,20,122,0.3);
       transition: all 0.2s ease;
     }
     .btn-print:hover {
-      box-shadow: 0 4px 24px rgba(212,20,122,0.5);
+      background: var(--rouge-clair);
     }
 
     /* ===== PAGE WRAPPER ===== */
@@ -79,7 +78,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 80px 24px 48px;
+      padding: 70px 24px 48px;
       min-height: 100vh;
     }
 
@@ -87,64 +86,53 @@
     .page {
       width: 210mm;
       height: 297mm;
-      background: var(--cv-fond);
+      background: var(--noir);
       position: relative;
       overflow: hidden;
       box-shadow:
-        0 0 0 1px rgba(232,184,75,0.2),
-        0 12px 80px rgba(0,0,0,0.8),
-        0 0 60px rgba(212,20,122,0.08);
+        0 0 0 1px rgba(200,169,110,0.15),
+        0 12px 80px rgba(0,0,0,0.9);
     }
 
-    /* Fond velours texturé */
+    /* Texture fond — lignes horizontales dorées très subtiles */
     .page::before {
       content: '';
       position: absolute;
       inset: 0;
-      background:
-        repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(232,184,75,0.025) 39px, rgba(232,184,75,0.025) 40px),
-        radial-gradient(circle at 15% 10%, rgba(212,20,122,0.06) 0%, transparent 35%),
-        radial-gradient(circle at 85% 90%, rgba(232,184,75,0.05) 0%, transparent 35%),
-        radial-gradient(circle at 50% 50%, rgba(123,79,191,0.03) 0%, transparent 60%);
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 39px,
+        rgba(200,169,110,0.018) 39px,
+        rgba(200,169,110,0.018) 40px
+      );
       pointer-events: none;
       z-index: 0;
     }
 
-    /* Barre supérieure gradient 5 couleurs */
+    /* Barre supérieure 3px : gradient rouge→or→rouge */
     .page-top-band {
       position: absolute;
       top: 0; left: 0; right: 0;
-      height: 5px;
-      background: linear-gradient(90deg,
-        var(--cv-magenta) 0%, var(--cv-or) 25%,
-        var(--cv-turquoise) 50%, var(--cv-or) 75%, var(--cv-magenta) 100%
-      );
+      height: 3px;
+      background: linear-gradient(90deg, var(--rouge) 0%, var(--or) 50%, var(--rouge) 100%);
       z-index: 10;
     }
 
-    /* Bandes latérales */
-    .page-side-left, .page-side-right {
-      position: absolute;
-      top: 5px; bottom: 0;
-      width: 4px;
-      z-index: 5;
-    }
-    .page-side-left {
-      left: 0;
-      background: linear-gradient(180deg, var(--cv-magenta) 0%, var(--cv-or) 50%, var(--cv-turquoise) 100%);
-      opacity: 0.6;
-    }
+    /* Bande rouge à droite */
     .page-side-right {
-      right: 0;
-      background: linear-gradient(180deg, var(--cv-turquoise) 0%, var(--cv-or) 50%, var(--cv-magenta) 100%);
-      opacity: 0.5;
+      position: absolute;
+      top: 0; bottom: 0; right: 0;
+      width: 5px;
+      background: linear-gradient(180deg, var(--rouge) 0%, transparent 100%);
+      z-index: 5;
     }
 
     /* ===== CONTENU ===== */
     .page-inner {
       position: relative;
       z-index: 5;
-      padding: 6mm 10mm 4mm 10mm;
+      padding: 10mm 12mm 8mm 12mm;
       display: flex;
       flex-direction: column;
       height: 100%;
@@ -152,172 +140,141 @@
 
     /* ===== EN-TÊTE ===== */
     .header {
-      padding-bottom: 3.5mm;
-      border-bottom: 2px solid;
-      border-image: linear-gradient(90deg, var(--cv-magenta), var(--cv-or), var(--cv-turquoise)) 1;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 8mm;
-      position: relative;
-      overflow: hidden;
+      gap: 6mm;
+      padding-bottom: 3mm;
+      border-bottom: 1px solid rgba(200,169,110,0.2);
     }
-    .header::before {
-      content: '';
-      position: absolute;
-      inset: -20px -20px -10px -20px;
-      background: radial-gradient(ellipse at 30% 50%, rgba(212,20,122,0.12) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .header-left { flex: 1; position: relative; }
+    .header-left { flex: 1; }
 
     /* Eyebrow candidature */
     .header-eyebrow {
       font-family: 'Raleway', sans-serif;
-      font-size: 5.5pt;
+      font-size: 6pt;
       font-weight: 600;
-      letter-spacing: 0.28em;
+      letter-spacing: 0.35em;
       text-transform: uppercase;
-      color: var(--cv-turquoise);
-      margin-bottom: 1mm;
+      color: var(--rouge-clair);
+      margin-bottom: 1.5mm;
     }
 
-    /* Nom : Louna en Abril Fatface, Garcia en Playfair italic or */
+    /* Nom : Louna en Playfair bold, Garcia en Playfair italic or */
     .header-nom {
-      font-family: 'Abril Fatface', serif;
-      font-size: 34pt;
-      color: var(--cv-blanc);
-      line-height: 0.9;
-      letter-spacing: 0.02em;
+      font-family: 'Playfair Display', serif;
+      font-size: 30pt;
+      font-weight: 700;
+      color: var(--blanc);
+      line-height: 0.95;
+      letter-spacing: 0.01em;
     }
     .header-nom em {
-      font-family: 'Playfair Display', serif;
       font-style: italic;
       font-weight: 400;
-      color: var(--cv-or-vif);
+      color: var(--or);
     }
 
     /* Bandeau poste */
     .header-poste {
       display: inline-block;
       margin-top: 2mm;
-      background: linear-gradient(90deg, var(--cv-magenta), #A0106A);
-      color: var(--cv-blanc);
+      background: var(--rouge);
+      color: var(--blanc);
       font-family: 'Raleway', sans-serif;
-      font-size: 7pt;
-      font-weight: 600;
-      letter-spacing: 0.12em;
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 1.5mm 6mm;
-      box-shadow: 2px 2px 0 rgba(255,215,0,0.2);
+      padding: 1.5mm 5mm;
     }
 
     .header-right {
       text-align: right;
       font-size: 7pt;
-      color: var(--cv-creme);
+      color: var(--blanc-dim);
       line-height: 1.9;
       flex-shrink: 0;
-      position: relative;
-      padding-top: 6mm;
-    }
-    .header-right strong {
-      color: var(--cv-or);
-      font-weight: 500;
     }
 
     /* ===== BANDEAU DÉMARCHE ===== */
     .demarche-band {
-      background: linear-gradient(135deg, rgba(212,20,122,0.06), rgba(0,168,150,0.04));
-      border: 1px solid rgba(212,20,122,0.2);
-      border-left: 3px solid var(--cv-magenta);
+      background: var(--gris);
+      border: 1px solid var(--rouge);
       padding: 2mm 4mm;
-      margin-top: 2.5mm;
+      margin-top: 3mm;
       display: flex;
       align-items: center;
       gap: 3mm;
-      position: relative;
-    }
-    .demarche-star {
-      color: var(--cv-or-vif);
-      font-size: 10pt;
-      flex-shrink: 0;
     }
     .db-label {
       font-family: 'Raleway', sans-serif;
-      font-size: 5pt;
+      font-size: 5.5pt;
       font-weight: 700;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--cv-magenta);
+      color: var(--rouge-clair);
       white-space: nowrap;
+      flex-shrink: 0;
     }
     .db-sep {
       width: 1px;
-      height: 20px;
-      background: linear-gradient(180deg, var(--cv-magenta), var(--cv-or));
+      height: 22px;
+      background: var(--rouge);
       flex-shrink: 0;
     }
     .db-texte {
       font-family: 'Playfair Display', serif;
-      font-size: 6.5pt;
+      font-size: 7.5pt;
       font-style: italic;
-      color: var(--cv-creme);
-      line-height: 1.5;
+      color: var(--blanc-dim);
+      line-height: 1.45;
     }
 
-    /* ===== COMPÉTENCES — barre horizontale tags ===== */
+    /* ===== COMPÉTENCES ===== */
     .competences-bar {
       display: flex;
       flex-wrap: wrap;
       gap: 1.5mm;
-      margin-top: 2.5mm;
+      margin-top: 3.5mm;
     }
     .comp-tag {
-      background: var(--cv-bg-tag);
-      border-left: 2.5px solid var(--cv-magenta);
-      padding: 1.2mm 3mm;
+      background: var(--gris);
+      border-left: 2px solid var(--rouge);
+      padding: 1.5mm 3mm;
       font-family: 'Raleway', sans-serif;
       font-size: 6.5pt;
-      font-weight: 500;
-      color: var(--cv-creme);
-      letter-spacing: 0.02em;
+      font-weight: 400;
+      color: var(--blanc-dim);
     }
-    .comp-tag:nth-child(3n+1) { border-left-color: var(--cv-magenta); }
-    .comp-tag:nth-child(3n+2) { border-left-color: var(--cv-or); }
-    .comp-tag:nth-child(3n)   { border-left-color: var(--cv-turquoise); }
 
     /* ===== TITRE SECTION ===== */
     .section-titre {
       font-family: 'Raleway', sans-serif;
-      font-size: 6.5pt;
+      font-size: 6pt;
       font-weight: 700;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.35em;
       text-transform: uppercase;
-      color: var(--cv-or-vif);
+      color: var(--or);
       display: flex;
       align-items: center;
       gap: 2.5mm;
-      margin-bottom: 2.5mm;
-    }
-    .section-titre::before {
-      content: '\2726';
-      font-size: 7pt;
-      color: var(--cv-magenta);
+      margin-bottom: 2mm;
+      padding-bottom: 1.5mm;
     }
     .section-titre::after {
       content: '';
       flex: 1;
       height: 1px;
-      background: linear-gradient(90deg, var(--cv-or), transparent);
+      background: linear-gradient(90deg, var(--or), transparent);
     }
 
     /* ===== CORPS 2 COLONNES ===== */
     .corps {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0 7mm;
-      margin-top: 3mm;
+      gap: 0 8mm;
+      margin-top: 3.5mm;
       flex: 1;
       min-height: 0;
     }
@@ -327,102 +284,106 @@
     }
     .col-left {
       padding-right: 5mm;
-      border-right: 1px solid rgba(232,184,75,0.12);
+      border-right: 1px solid rgba(200,169,110,0.1);
     }
 
     /* ===== ITEMS EXPÉRIENCE / FORMATION ===== */
     .item {
       padding: 1.5mm 0;
-      border-bottom: 1px solid rgba(232,184,75,0.07);
+      border-bottom: 1px solid rgba(200,169,110,0.07);
     }
     .item:last-of-type { border-bottom: none; }
     .item-annee {
       font-family: 'Playfair Display', serif;
       font-size: 7pt;
-      color: var(--cv-or);
+      color: var(--or);
       font-style: italic;
       line-height: 1.2;
     }
     .item-titre {
-      font-family: 'Raleway', sans-serif;
       font-size: 7.5pt;
       font-weight: 700;
-      color: var(--cv-blanc);
+      color: var(--blanc);
       line-height: 1.3;
       margin-top: 0.3mm;
     }
     .item-lieu {
       font-size: 6.5pt;
-      color: var(--cv-magenta);
+      color: var(--rouge-clair);
       margin-top: 0.2mm;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.02em;
     }
     .item-desc {
       font-family: 'Playfair Display', serif;
       font-size: 6.5pt;
-      color: var(--cv-creme);
+      color: var(--blanc-dim);
       font-style: italic;
       margin-top: 0.5mm;
       line-height: 1.4;
+    }
+    .item-desc .sep-or {
+      color: var(--or-dim);
     }
 
     /* ===== LANGUES ===== */
     .langues-line {
       font-size: 6.5pt;
-      color: var(--cv-creme);
+      color: var(--blanc-dim);
       margin-top: 2mm;
       padding-top: 1.5mm;
-      border-top: 1px solid rgba(232,184,75,0.12);
+      border-top: 1px solid rgba(200,169,110,0.12);
     }
-    .langues-line strong { color: var(--cv-or); font-weight: 600; }
+    .langues-line strong { color: var(--or); font-weight: 600; }
 
     /* ===== BLOC MOTIVATION ===== */
     .motivation-bloc {
-      margin-top: 2.5mm;
-      padding: 2mm 4mm;
-      border: 1px solid rgba(232,184,75,0.25);
-      border-left: 3px solid var(--cv-or);
-      background: rgba(232,184,75,0.04);
-    }
-    .motivation-bloc p {
-      font-family: 'Playfair Display', serif;
-      font-size: 6.5pt;
-      font-style: italic;
-      color: var(--cv-creme);
-      line-height: 1.5;
+      margin-top: 3mm;
+      padding: 2.5mm 4mm;
+      border: 1px solid rgba(200,169,110,0.2);
+      background: rgba(200,169,110,0.03);
+      position: relative;
     }
     .motiv-label {
+      position: absolute;
+      top: -2mm;
+      left: 3mm;
+      background: var(--noir);
+      padding: 0 2mm;
       font-family: 'Raleway', sans-serif;
       font-size: 5pt;
       font-weight: 700;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--cv-or-vif);
-      font-style: normal;
-      margin-bottom: 1mm;
-      display: block;
+      color: var(--or);
+    }
+    .motivation-bloc p {
+      font-family: 'Playfair Display', serif;
+      font-size: 7.5pt;
+      font-style: italic;
+      color: var(--blanc-dim);
+      line-height: 1.5;
     }
 
     /* ===== FOOTER ===== */
     .page-footer {
       margin-top: auto;
       padding-top: 2mm;
-      border-top: 1px solid rgba(232,184,75,0.15);
+      border-top: 1px solid rgba(200,169,110,0.15);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     .footer-left {
       font-size: 6pt;
-      color: rgba(255,245,232,0.3);
-      letter-spacing: 0.1em;
+      color: var(--blanc-dim);
+      opacity: 0.5;
+      letter-spacing: 0.05em;
     }
     .footer-right {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: 7pt;
-      color: var(--cv-or);
-      opacity: 0.6;
+      font-size: 6.5pt;
+      color: var(--or-dim);
     }
 
     /* ===== PRINT ===== */
@@ -430,7 +391,7 @@
       @page { size: A4 portrait; margin: 0; }
       html { font-size: 10pt; }
       body {
-        background: var(--cv-fond);
+        background: #0A0A0A;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
         color-adjust: exact;
@@ -443,15 +404,6 @@
         height: 297mm;
       }
     }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 230mm) {
-      .page {
-        width: 100%;
-        height: auto;
-        min-height: 297mm;
-      }
-    }
   </style>
 </head>
 <body>
@@ -459,14 +411,13 @@
 <!-- NAV -->
 <nav class="nav-bar">
   <a href="index.html">&larr; Retour au portfolio</a>
-  <button class="btn-print" onclick="window.print()">&#9113;&nbsp; Imprimer</button>
+  <button class="btn-print" onclick="window.print()">Imprimer</button>
 </nav>
 
 <div class="page-wrapper">
   <article class="page">
     <!-- Décorations -->
     <div class="page-top-band"></div>
-    <div class="page-side-left"></div>
     <div class="page-side-right"></div>
 
     <div class="page-inner">
@@ -477,19 +428,18 @@
           <div class="header-eyebrow">Candidature &mdash; La Fabrique des petits hasards</div>
           <h1 class="header-nom">Louna <em>Garcia</em></h1>
           <div>
-            <span class="header-poste">Communication &amp; Diffusion Th&eacute;&acirc;trale</span>
+            <span class="header-poste">Communication &amp; Diffusion th&eacute;&acirc;trale</span>
           </div>
         </div>
         <div class="header-right">
-          <strong>&#9993;</strong>&nbsp; garcia.louna03@gmail.com<br>
-          <strong>&#9742;</strong>&nbsp; 07 68 15 22 62<br>
-          <strong>&#9675;</strong>&nbsp; 10 rue du fbg Saint-Martin, 75010 Paris
+          &#9993;&nbsp; garcia.louna03@gmail.com<br>
+          &#9742;&nbsp; 07 68 15 22 62<br>
+          &#9675;&nbsp; 10 rue du fbg Saint-Martin, 75010 Paris
         </div>
       </header>
 
       <!-- DÉMARCHE -->
       <div class="demarche-band">
-        <span class="demarche-star">&#10022;</span>
         <div class="db-label">D&eacute;marche</div>
         <div class="db-sep"></div>
         <div class="db-texte">
@@ -519,48 +469,45 @@
           <div class="item">
             <div class="item-annee">Sept.&ndash;D&eacute;c. 2026</div>
             <div class="item-titre">Animatrice commerciale</div>
-            <div class="item-desc">Communication directe, valorisation de produits, relation client.</div>
+            <div class="item-desc">Communication directe, valorisation de produits, relation client et fid&eacute;lisation.</div>
           </div>
 
           <div class="item">
             <div class="item-annee">2024</div>
             <div class="item-titre">Employ&eacute;e polyvalente &amp; h&ocirc;tesse d'accueil</div>
-            <div class="item-lieu">Caprice du Brusc</div>
+            <div class="item-lieu">Caprice du Brusc &mdash; saisonnier</div>
+            <div class="item-desc">Accueil client&egrave;le, gestion des flux, communication sous pression.</div>
           </div>
 
           <div class="item">
             <div class="item-annee">2023</div>
             <div class="item-titre">Serveuse</div>
-            <div class="item-lieu">464 Harbor, Odessa</div>
+            <div class="item-lieu">464 Harbor, Odessa &mdash; saisonnier</div>
+            <div class="item-desc">Relation client, adaptabilit&eacute;, travail en &eacute;quipe.</div>
           </div>
 
           <div class="item">
             <div class="item-annee">Saison</div>
-            <div class="item-titre">Ouvrier viticole &mdash; vendanges</div>
+            <div class="item-titre">Ouvrier viticole</div>
+            <div class="item-lieu">Domaine viticole &mdash; vendanges</div>
           </div>
 
           <div class="item">
             <div class="item-annee">2020</div>
-            <div class="item-titre">Animatrice encadrement jeunesse</div>
+            <div class="item-titre">Animatrice &mdash; encadrement jeunesse</div>
             <div class="item-lieu">Club de basket</div>
+            <div class="item-desc">Animation pour enfants de 7 &agrave; 10 ans. P&eacute;dagogie, gestion de groupe.</div>
           </div>
 
           <div class="item">
             <div class="item-annee">Depuis 2022</div>
-            <div class="item-titre">Restitutions publiques</div>
-            <div class="item-lieu">Conservatoire Paris 20<sup>e</sup></div>
+            <div class="item-titre">Restitutions publiques &mdash; Cycle 3</div>
+            <div class="item-lieu">Conservatoire &mdash; Paris 20<sup>e</sup></div>
+            <div class="item-desc">Pr&eacute;sentations r&eacute;guli&egrave;res de travaux de plateau devant un public.</div>
           </div>
 
           <div class="langues-line">
-            <strong>Langues&nbsp;:</strong>&nbsp; Fran&ccedil;ais (natif) &nbsp;&middot;&nbsp; Anglais B2 &nbsp;&middot;&nbsp; Espagnol B1
-          </div>
-
-          <!-- BLOC MOTIVATION -->
-          <div class="motivation-bloc">
-            <span class="motiv-label">Candidature &mdash; La Fabrique des petits hasards</span>
-            <p>
-              Ayant grandi dans un milieu &eacute;loign&eacute; de la culture, le th&eacute;&acirc;tre m'a ouvert un monde que je veux rendre accessible &agrave; d'autres. La Fabrique des petits hasards incarne cette mission depuis plus de 20&nbsp;ans avec les publics prioritaires. Je souhaite mettre mes comp&eacute;tences en communication, montage vid&eacute;o, cr&eacute;ation sonore et relation public au service de votre diffusion et de votre rayonnement.
-            </p>
+            <strong>Fran&ccedil;ais (natif)</strong> &nbsp;&middot;&nbsp; Anglais B2 &nbsp;&middot;&nbsp; Espagnol B1
           </div>
         </div>
 
@@ -570,39 +517,50 @@
 
           <div class="item">
             <div class="item-annee">Depuis 2025</div>
-            <div class="item-titre">Ateliers Danse &amp; Masque</div>
-            <div class="item-lieu">Conservatoire Paris 20<sup>e</sup></div>
+            <div class="item-titre">Ateliers Danse et Masque</div>
+            <div class="item-lieu">Conservatoire Municipal &mdash; Paris 20<sup>e</sup></div>
           </div>
 
           <div class="item">
             <div class="item-annee">Depuis 2022</div>
             <div class="item-titre">Cycle 3 d'art dramatique</div>
-            <div class="item-lieu">Conservatoire Paris 20<sup>e</sup></div>
-            <div class="item-desc">Jeu, voix, texte contemporain. Restitutions publiques.</div>
+            <div class="item-lieu">Conservatoire Municipal de Th&eacute;&acirc;tre &mdash; Paris 20<sup>e</sup></div>
+            <div class="item-desc">Formation pratique avec restitutions ponctuelles.</div>
           </div>
 
           <div class="item">
             <div class="item-annee">2022&ndash;2025</div>
             <div class="item-titre">Licence d'&Eacute;tude Th&eacute;&acirc;trale</div>
             <div class="item-lieu">Universit&eacute; Paris-Sorbonne</div>
-            <div class="item-desc">Ateliers&nbsp;: Christophe Tarkos, Rebekka Kricheldorf, Th&eacute;&acirc;tre chinois traditionnel, Jeu d'acteur au Th&eacute;&acirc;tre du Soleil (troupe officielle), R&eacute;pertoire qu&eacute;b&eacute;cois, Th&eacute;&acirc;tre r&eacute;cit.</div>
+            <div class="item-desc">
+              &mdash; Christophe Tarkos <span class="sep-or">&middot;</span> Rebekka Kricheldorf <span class="sep-or">&middot;</span> Th&eacute;&acirc;tre chinois traditionnel <span class="sep-or">&middot;</span> Jeu d'acteur au Th&eacute;&acirc;tre du Soleil (troupe officielle) <span class="sep-or">&middot;</span> R&eacute;pertoire qu&eacute;b&eacute;cois <span class="sep-or">&middot;</span> Th&eacute;&acirc;tre r&eacute;cit
+            </div>
           </div>
 
           <div class="item">
             <div class="item-annee">2021</div>
-            <div class="item-titre">Bac G&eacute;n&eacute;ral &mdash; <em>Mention Bien</em></div>
+            <div class="item-titre">Baccalaur&eacute;at G&eacute;n&eacute;ral &mdash; Mention Bien</div>
           </div>
 
           <div class="item">
             <div class="item-annee">2018&ndash;2021</div>
             <div class="item-titre">Conservatoire de La Seyne-sur-Mer</div>
-            <div class="item-desc">Formation classique et contemporaine approfondie.</div>
+            <div class="item-desc">Formation classique et contemporaine.</div>
           </div>
 
           <div class="item">
             <div class="item-annee">2009&ndash;2014</div>
-            <div class="item-titre">Compagnie <em>&ldquo;Grain de Sel&rdquo;</em></div>
+            <div class="item-titre">Compagnie &ldquo;Grain de Sel&rdquo;</div>
             <div class="item-lieu">Six-Fours-les-Plages</div>
+            <div class="item-desc">Formation th&eacute;&acirc;trale d&egrave;s l'enfance &mdash; premiers pas sur le plateau.</div>
+          </div>
+
+          <!-- BLOC MOTIVATION -->
+          <div class="motivation-bloc">
+            <span class="motiv-label">Motivation</span>
+            <p>
+              Ayant grandi dans un milieu &eacute;loign&eacute; de la culture, le th&eacute;&acirc;tre m'a ouvert un monde que je veux rendre accessible &agrave; d'autres. La Fabrique des petits hasards incarne cette mission depuis plus de 20&nbsp;ans avec les publics prioritaires. Je souhaite mettre mes comp&eacute;tences en communication, montage vid&eacute;o, cr&eacute;ation sonore et relation public au service de votre diffusion et de votre rayonnement.
+            </p>
           </div>
         </div>
 
@@ -610,8 +568,8 @@
 
       <!-- FOOTER -->
       <footer class="page-footer">
-        <span class="footer-left">Louna Garcia &mdash; Communication &amp; Diffusion &mdash; 2026 / Candidature &mdash; La Fabrique des petits hasards</span>
-        <span class="footer-right">Artiste pluridisciplinaire</span>
+        <span class="footer-left">Louna Garcia &mdash; Communication &amp; Diffusion &mdash; 2026</span>
+        <span class="footer-right">Candidature &mdash; La Fabrique des petits hasards</span>
       </footer>
 
     </div><!-- /.page-inner -->
